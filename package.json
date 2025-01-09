@@ -1,0 +1,50 @@
+{
+  "name": "ecommerce",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "~11.13.3",
+    "@emotion/styled": "~11.13.0",
+    "@mui/icons-material": "~6.1.1",
+    "@mui/material": "~6.1.1",
+    "@mui/styled-engine-sc": "~6.1.1",
+    "@types/node": "~22.6.1",
+    "axios": "~1.7.7",
+    "firebase": "~10.13.2",
+    "material-icons": "~1.13.12",
+    "react": "~18.2.0",
+    "react-dom": "~18.2.0",
+    "react-query": "^3.39.3",
+    "react-router-dom": "~6.26.2",
+    "styled-components": "~6.1.10",
+    "vite": "~5.1.4",
+    "vite-plugin-svgr": "~4.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "~18.2.56",
+    "@types/react-dom": "~18.2.19",
+    "@types/react-query": "^1.2.9",
+    "@types/styled-components": "~5.1.34",
+    "@typescript-eslint/eslint-plugin": "~7.0.2",
+    "@typescript-eslint/parser": "~7.0.2",
+    "@vitejs/plugin-react": "~4.2.1",
+    "autoprefixer": "~10.4.20",
+    "editorconfig": "~2.0.0",
+    "eslint": "~8.56.0",
+    "eslint-plugin-editorconfig": "~4.0.3",
+    "eslint-plugin-react": "~7.33.2",
+    "eslint-plugin-react-hooks": "~4.6.0",
+    "eslint-plugin-react-refresh": "~0.4.5",
+    "postcss": "~8.4.47",
+    "prettier": "~3.2.5",
+    "tailwindcss": "~3.4.13",
+    "typescript": "~5.2.2"
+  }
+}
