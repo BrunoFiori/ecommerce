@@ -1,0 +1,42 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  azureSubscription: $(AZURE_SUBSCRIPTION_ID)
+  appName: 'example-ecommerce-microservices',
+  resourceGroup: $(AZURE_RESOURCE_GROUP)
+  packagePath: '$(Build.ArtifactStagingDirectory)/drop'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.9.0'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'Install dependencies and build'
+
+- task: CopyFiles@2
+  inputs:
+    contents: 'dist/**'
+    targetFolder: '$(Build.ArtifactStagingDirectory)/drop'
+  displayName: 'Copy files to artifact staging directory'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/drop'
+    ArtifactName: 'drop'
+  displayName: 'Publish build artifacts'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: '$(azureSubscription)'
+    appName: '$(appName)'
+    resourceGroupName: '$(resourceGroup)'
+    package: '$(packagePath)'
+  displayName: 'Deploy to Azure Web App'
